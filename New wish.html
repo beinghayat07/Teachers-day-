@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Happy Teachers' Day</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #f9d423, #ff4e50);
+      overflow: hidden;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    .card {
+      text-align: center;
+      padding: 40px 60px;
+      border-radius: 25px;
+      background: rgba(255, 255, 255, 0.15);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+      backdrop-filter: blur(10px);
+      position: relative;
+      overflow: hidden;
+    }
+
+    h1 {
+      font-size: 3em;
+      color: #fff;
+      text-shadow: 0 3px 8px rgba(0,0,0,0.3);
+      animation: glow 2s infinite alternate;
+    }
+
+    p {
+      font-size: 1.2em;
+      color: #fff;
+      margin-top: 10px;
+      animation: fadeIn 3s ease-in-out;
+    }
+
+    @keyframes glow {
+      from { text-shadow: 0 0 5px #fff, 0 0 10px #ff6, 0 0 20px #f6c; }
+      to   { text-shadow: 0 0 20px #fff, 0 0 30px #ff6, 0 0 40px #f6c; }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Floating balloons */
+    .balloon {
+      position: absolute;
+      bottom: -150px;
+      width: 40px;
+      height: 60px;
+      background: radial-gradient(circle at 30% 30%, #fff, var(--color));
+      border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+      animation: floatUp 10s linear infinite;
+    }
+
+    @keyframes floatUp {
+      0%   { transform: translateY(0) rotate(0deg); opacity: 1; }
+      80%  { opacity: 1; }
+      100% { transform: translateY(-120vh) rotate(360deg); opacity: 0; }
+    }
+
+    .string {
+      width: 2px;
+      height: 50px;
+      background: #fff;
+      margin: 0 auto;
+      margin-top: -5px;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>🌸 Happy Teachers' Day 🌸</h1>
+    <p>Thank you for lighting the path of knowledge and wisdom.</p>
+  </div>
+
+  <script>
+    // Generate balloons with random colors & positions
+    const colors = ["#ff4e50","#f9d423","#24c6dc","#ff9a9e","#a18cd1","#fbc2eb"];
+    for (let i = 0; i < 20; i++) {
+      let balloon = document.createElement("div");
+      balloon.className = "balloon";
+      balloon.style.setProperty("--color", colors[Math.floor(Math.random()*colors.length)]);
+      balloon.style.left = Math.random() * 100 + "vw";
+      balloon.style.animationDuration = (5 + Math.random()*5) + "s";
+      document.body.appendChild(balloon);
+
+      let string = document.createElement("div");
+      string.className = "string";
+      balloon.appendChild(string);
+    }
+  </script>
+</body>
+</html>
